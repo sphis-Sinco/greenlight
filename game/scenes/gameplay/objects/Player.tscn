@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://clfnu6vhmjl8k"]
+
+[ext_resource type="Texture2D" uid="uid://duaw651frqb77" path="res://game/assets/player.png" id="1_hwhpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk5k1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vanev"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pqxu"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4po2"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oqbe"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc5xb"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0o7r"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t37kl"]
+atlas = ExtResource("1_hwhpg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egdjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vanev")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pqxu")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_f4po2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6oqbe")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_rc5xb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_k0o7r")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_t37kl")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yk5k1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+editor_description = "The player sprite"
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_egdjo")
+animation = &"idle"
+autoplay = "idle"
