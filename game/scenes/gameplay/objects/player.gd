@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Move left to right
 	var h_dir = Input.get_axis("move_left", "move_right")
 	if h_dir:
