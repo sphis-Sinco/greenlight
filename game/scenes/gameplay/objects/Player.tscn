@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://duaw651frqb77" path="res://game/assets/player.png" id="1_hwhpg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk5k1"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vanev"]
 atlas = ExtResource("1_hwhpg")
 region = Rect2(16, 0, 16, 16)
@@ -71,10 +69,10 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk5k1"]
+size = Vector2(5, 13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_yk5k1")
+[node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 editor_description = "The player sprite"
@@ -82,3 +80,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_egdjo")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_yk5k1")
